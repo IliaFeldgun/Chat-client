@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Messages from './Messages'
 import MessageInput from './MessageInput'
 
+import Socket from '../../api/socket'
 
 const useStyles = makeStyles((theme) => ({
     messages: {
@@ -17,7 +18,15 @@ const useStyles = makeStyles((theme) => ({
 
 const MessagesContainer = () => {
     const classes = useStyles()
-    let messages = ["hey", "you"]
+    const [messages, setMessages] = React.useState([])
+    
+    React.useEffect(() => {
+        // setMessages(["Hello", "yes", "Finally we're here"])
+        Socket.registerToMessage((message) => {
+            setMessages([...messages, message])
+        })
+    })
+
     return (
         <Container component="span" className={classes.messages}>
             <Messages messages={messages}  />
