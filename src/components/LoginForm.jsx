@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, TextField } from '@material-ui/core'
+import Socket from '../api/socket'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -8,23 +9,31 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const LoginForm = () => {
+const LoginForm = ({onLogin}) => {
     const classes = useStyles()
 
-    const [state, setState] = React.useState({
-        name: ""
-    })
+    const [name, setName] = React.useState("")
+
     const handleChange = (event) => {
-        setState({
-            name: event.target.value
-        })
+        setName(event.target.value)
+    }
+
+    const handleLogin = () => {
+        Socket.login(name)
+        onLogin(name)
     }
     const handleClick = (event) => {
-        /// Send to server, effect hook
+        handleLogin()
     }
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter')
+            handleLogin()
+    }
+    
     return (
         <React.Fragment>
-            <TextField type="text" label="Name" onChange={handleChange} />
+            <TextField type="text" label="Name" onChange={handleChange} onKeyPress={handleKeyPress} />
             <Button color="inherit" className={classes.button} onClick={handleClick}>
                 Login
             </Button>
