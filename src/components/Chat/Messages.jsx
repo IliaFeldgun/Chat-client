@@ -11,13 +11,13 @@ const Messages = ({messages}) => {
     const classes = useStyles()
 
     return (
-        <React.Fragment className={classes.messages}>
+        <div className={classes.messages}>
             {
                 messages.map((message) => {
-                    return <div key={message}>{message}</div>
+                    return <div key={message.message}>{message.message}</div>
                 })
             }
-        </React.Fragment>
+        </div>
     )
 }
 export default Messages
