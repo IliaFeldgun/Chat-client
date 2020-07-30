@@ -19,10 +19,18 @@ const TopBar = () => {
         loginOpen: false
     })
 
+    const [buttonText, setButtonText] = React.useState("Login")
+
     const toggleModal = (loginOpen) => {
         setState({ ...state, loginOpen })
     };
-    const handleLoginClose = () => toggleModal(false)
+    const handleLoginClose = (userName) => {
+        if (userName) {
+            setButtonText(userName) 
+        }
+        
+        toggleModal(false)
+    }
 
     return (
         <div className={classes.root}>
@@ -32,7 +40,7 @@ const TopBar = () => {
                     Chat
                 </Typography>
                 <Button color="inherit" onClick={() => toggleModal(true)}>
-                    Login
+                    {buttonText}
                 </Button>
             </Toolbar>
             <Login open={state.loginOpen} onClose={handleLoginClose} />
