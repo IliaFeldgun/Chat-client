@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
 const Messages = ({messages}) => {
     const classes = useStyles()
 
+    messages.sort((a, b) => {
+        return new Date(a.timestamp) - new Date(b.timestamp)
+    })
+    
     return (
         <div className={classes.messages}>
             {
