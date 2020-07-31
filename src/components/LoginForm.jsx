@@ -1,7 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, TextField } from '@material-ui/core'
-import Socket from '../api/socket'
+
+import Session from '../engine/Session'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -19,7 +20,7 @@ const LoginForm = ({onLogin}) => {
     }
 
     const handleLogin = () => {
-        Socket.login(name)
+        Session.Login(name)
         onLogin()
     }
     const handleClick = (event) => {
