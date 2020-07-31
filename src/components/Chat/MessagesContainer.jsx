@@ -21,12 +21,11 @@ const MessagesContainer = () => {
     const [messages, setMessages] = React.useState([])
     
     React.useEffect(() => {
-        // setMessages(["Hello", "yes", "Finally we're here"])
         Socket.registerToMessage((message) => {
             setMessages([...messages, message])
         })
         Socket.registerToBulkMessage((bulkMessages) => {
-            setMessages([...messages, bulkMessages])
+            setMessages([...messages, ...bulkMessages])
         })
     })
 
