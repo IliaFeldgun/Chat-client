@@ -3,8 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button} from '@material-ui/core'
 
 import Login from './Login'
-import Socket from '../../api/socket'
-import SessionStorage from '../../engine/SessionStorage'
+import Session from '../../engine/Session'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,36 +20,27 @@ const TopBar = () => {
     const [userName, setUserName] = React.useState("")
     
     React.useEffect(() => {
-        initUserName(true)
-        Socket.registerToLogin(handleLoggedIn)
+        initUserName()
     })
-
-    const handleLoggedIn = (user) => {
-        SessionStorage.setUserName(user.userName)
-        initUserName(false)
-    }
-
-    const initUserName = (shouldLogin) => {
-        const sessionUserName = SessionStorage.getUserName()
-
-        if (sessionUserName) {
-            setUserName(sessionUserName)
-
-            if (shouldLogin) {
-                Socket.login(sessionUserName)
-            }
+    const initUserName = () => {
+        const userName = Session.tryReLogin()
+        if (userName) {
+            setUserName(userName)
+        }
+        else {
+            Session.registerToLogin((userName) => setUserName(userName))
         }
     }
-
     const toggleModal = (loginOpen) => {
         setOpen(loginOpen)
     }
-    
+
     const handleLoginClose = () => {
         toggleModal(false)
     }
 
     const buttonText = userName !== "" ? userName : "Login"
+
     return (
         <div className={classes.root}>
         <AppBar position="static">
