@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button} from '@material-ui/core'
 
 import Login from './Login'
-
+import SessionStorage from '../../engine/SessionStorage'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -20,16 +20,18 @@ const TopBar = () => {
     })
 
     const [buttonText, setButtonText] = React.useState("Login")
-
     const toggleModal = (loginOpen) => {
         setState({ ...state, loginOpen })
-    };
-    const handleLoginClose = (userName) => {
-        if (userName) {
-            setButtonText(userName) 
-        }
-        
+    }
+    const handleLoginClose = () => {
+        initUserName()
         toggleModal(false)
+    }
+    const initUserName = () => {
+        const userName = SessionStorage.getUserName()
+        if (userName) {
+            setButtonText(userName)
+        }
     }
 
     return (
