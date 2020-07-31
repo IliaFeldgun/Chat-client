@@ -18,28 +18,39 @@ const TopBar = () => {
     const classes = useStyles()
 
     const [open, setOpen] = React.useState(false)
-
-    const [buttonText, setButtonText] = React.useState("Login")
-    const toggleModal = (loginOpen) => {
-        setOpen(loginOpen)
-    }
-    const handleLoginClose = () => {
-        toggleModal(false)
-    }
+    const [userName, setUserName] = React.useState("")
     
+    React.useEffect(() => {
+        initUserName(true)
+        Socket.registerToLogin(handleLoggedIn)
+    })
+
     const handleLoggedIn = (user) => {
         SessionStorage.setUserName(user.userName)
-        initUserName()
+        initUserName(false)
     }
-    Socket.registerToLogin(handleLoggedIn)
 
-    const initUserName = () => {
-        const userName = SessionStorage.getUserName()
-        if (userName) {
-            setButtonText(userName)
+    const initUserName = (shouldLogin) => {
+        const sessionUserName = SessionStorage.getUserName()
+
+        if (sessionUserName) {
+            setUserName(sessionUserName)
+
+            if (shouldLogin) {
+                Socket.login(sessionUserName)
+            }
         }
     }
 
+    const toggleModal = (loginOpen) => {
+        setOpen(loginOpen)
+    }
+    
+    const handleLoginClose = () => {
+        toggleModal(false)
+    }
+
+    const buttonText = userName !== "" ? userName : "Login"
     return (
         <div className={classes.root}>
         <AppBar position="static">
@@ -51,11 +62,10 @@ const TopBar = () => {
                     {buttonText}
                 </Button>
             </Toolbar>
-            <Login open={state.loginOpen} onClose={handleLoginClose} />
+            <Login open={open} onClose={handleLoginClose} />
         </AppBar>
         </div>
     );
 }
-
 
 export default TopBar
