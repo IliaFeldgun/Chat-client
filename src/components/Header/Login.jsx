@@ -7,8 +7,8 @@ const Login = ({open, onClose}) => {
     const toggleDialog = (shouldShow) => {
         onClose()
     }
-    const handleLogin = (userName) => {
-        onClose(userName)
+    const handleLogin = () => {
+        onClose()
     }
     return (
         <Dialog open={open} onClose={() => toggleDialog(false)}>
