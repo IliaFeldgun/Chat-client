@@ -31,10 +31,10 @@ const MessageInput = () => {
         if (event.key === 'Enter')
             sendMessage(input)
     }
-    
+
     return (
         <div className={classes.messageInput}> 
-            <TextField variant="outlined" onChange={handleChange} onKeyPress={handleKeyPress}/>
+            <TextField variant="outlined" value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
             <Button onClick={handleSubmit}>
                 {">"}
             </Button>
