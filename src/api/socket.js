@@ -9,7 +9,10 @@ export default class Socket {
         socket.on('users', callback)
     }
     static sendMessage = (message) => {
-        socket.emit('message', message)
+        socket.emit('message', {
+            message,
+            timestamp: (new Date()).toISOString().replace('T', ' ').replace('Z', '')
+        })
     }
     static login = (userName) => {
         socket.emit('login', userName)
