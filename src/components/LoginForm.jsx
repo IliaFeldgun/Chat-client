@@ -20,7 +20,7 @@ const LoginForm = ({onLogin}) => {
 
     const handleLogin = () => {
         Socket.login(name)
-        onLogin(name)
+        onLogin()
     }
     const handleClick = (event) => {
         handleLogin()
