@@ -5,6 +5,9 @@ export default class Socket {
     static registerToMessage = (callback) => {
         socket.on('message', callback)
     }
+    static registerToBulkMessage = (callback) => {
+        socket.on('bulk-message', callback)
+    }
     static registerToUsers = (callback) => {
         socket.on('users', callback)
     }
