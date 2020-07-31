@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '@material-ui/core'
+import { Container, Divider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Users from './Users'
@@ -26,6 +26,8 @@ const UsersContainer = () => {
 
     return (
         <Container component="span" className={classes.users}>
+            Users in chat
+            <Divider />
             <Users users={users} />
         </Container>
     )
