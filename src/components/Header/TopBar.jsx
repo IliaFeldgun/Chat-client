@@ -1,7 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button} from '@material-ui/core'
-
+import { 
+    AppBar, Toolbar, Typography, Button, IconButton
+} from '@material-ui/core'
+import { Menu as MenuIcon } from '@material-ui/icons'
 import Login from './Login'
 import Session from '../../engine/Session'
 
@@ -11,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+  },
+  menuButton: {
+      marginRight: theme.spacing(2)
   }
 }));
 const TopBar = () => {
@@ -45,6 +50,12 @@ const TopBar = () => {
         <div className={classes.root}>
         <AppBar position="static">
             <Toolbar>
+                <IconButton 
+                    className={classes.menuButton} 
+                    edge="start" color="inherit" aria-label="menu"
+                >
+                    <MenuIcon />
+                </IconButton>
                 <Typography variant="h6" className={classes.title}>
                     Chat
                 </Typography>
