@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const ChatContainer = ({children}) => {
     const classes = useStyles()
+    
     return (
         <Box className={classes.chat}>
             {children}
