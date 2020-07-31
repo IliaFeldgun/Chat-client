@@ -25,6 +25,9 @@ const MessagesContainer = () => {
         Socket.registerToMessage((message) => {
             setMessages([...messages, message])
         })
+        Socket.registerToBulkMessage((bulkMessages) => {
+            setMessages([...messages, bulkMessages])
+        })
     })
 
     return (
