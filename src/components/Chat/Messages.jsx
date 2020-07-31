@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
+import { List } from '@material-ui/core'
 
 import Message from './Message'
 
@@ -17,7 +18,7 @@ const Messages = ({messages}) => {
     })
     
     return (
-        <div className={classes.messages}>
+        <List className={classes.messages}>
             {
                 messages.map((message) => {
                     return <Message 
@@ -28,7 +29,7 @@ const Messages = ({messages}) => {
                     />
                 })
             }
-        </div>
+        </List>
     )
 }
 export default Messages
