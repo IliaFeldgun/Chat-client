@@ -8,11 +8,13 @@ import MessageInput from './MessageInput'
 import Socket from '../../api/socket'
 
 const useStyles = makeStyles((theme) => ({
-    messages: {
-        backgroundColor: "whitesmoke",
-        flex: "70%",
-        position: "relative",
-        height: "100%",
+    container: {
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: 'whitesmoke',
+        paddingRight: '0',
+        width: '80%'
     }
 }));
 
@@ -30,7 +32,7 @@ const MessagesContainer = () => {
     })
 
     return (
-        <Container component="span" className={classes.messages}>
+        <Container component='span' className={classes.container}>
             <Messages messages={messages}  />
             <MessageInput />
         </Container>
