@@ -14,7 +14,7 @@ export default class Socket {
     static sendMessage = (message) => {
         socket.emit('message', {
             message,
-            timestamp: (new Date()).toISOString().replace('T', ' ').replace('Z', '')
+            timestamp: (new Date()).toJSON()
         })
     }
     static login = (userName) => {
