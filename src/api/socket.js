@@ -8,6 +8,9 @@ export default class Socket {
     static registerToUsers = (callback) => {
         socket.on('users', callback)
     }
+    static registerToLogin = (callback) => {
+        socket.on('logged-in', callback)
+    }
     static sendMessage = (message) => {
         socket.emit('message', {
             message,
