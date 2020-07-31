@@ -17,13 +17,11 @@ const useStyles = makeStyles((theme) => ({
 const TopBar = () => {
     const classes = useStyles()
 
-    const [state, setState] = React.useState({
-        loginOpen: false
-    })
+    const [open, setOpen] = React.useState(false)
 
     const [buttonText, setButtonText] = React.useState("Login")
     const toggleModal = (loginOpen) => {
-        setState({ ...state, loginOpen })
+        setOpen(loginOpen)
     }
     const handleLoginClose = () => {
         toggleModal(false)
@@ -31,7 +29,6 @@ const TopBar = () => {
     
     const handleLoggedIn = (user) => {
         SessionStorage.setUserName(user.userName)
-        
         initUserName()
     }
     Socket.registerToLogin(handleLoggedIn)
