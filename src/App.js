@@ -10,8 +10,8 @@ function App() {
     <React.Fragment>
       <TopBar />
       <ChatContainer>
-        <MessagesContainer />
         <UsersContainer />
+        <MessagesContainer />
       </ChatContainer>
     </React.Fragment>
   )
