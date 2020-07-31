@@ -7,10 +7,9 @@ import Socket from '../../api/socket'
 
 const useStyles = makeStyles((theme) => ({
     users: {
-        backgroundColor: "whitesmoke",
-        flex: "30%",
-        position: "relative",
-        height: "100%"
+        marginTop: "10px",
+        width: "20%",
+        height: "100%",
     }
 }));
 
