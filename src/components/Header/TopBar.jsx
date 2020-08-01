@@ -27,14 +27,16 @@ const TopBar = () => {
     React.useEffect(() => {
         initUserName()
     })
+
     const initUserName = () => {
-        const userName = Session.tryReLogin()
-        if (userName) {
-            setUserName(userName)
+        if (userName === ""){
+            const newUserName = Session.tryReLogin()
+        
+            if (newUserName) {
+                setUserName(newUserName)
+            }
         }
-        else {
-            Session.registerToLogin((userName) => setUserName(userName))
-        }
+        Session.registerToLogin((newUserName) => setUserName(newUserName))
     }
     const toggleModal = (loginOpen) => {
         setOpen(loginOpen)
