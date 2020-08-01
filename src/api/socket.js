@@ -1,5 +1,6 @@
 import SocketIO from 'socket.io-client'
-const socket = SocketIO("http://localhost:8080")
+const SOCKET_ENPOINT = process.env.REACT_APP_CLUB_API_SERVER
+const socket = SocketIO(SOCKET_ENPOINT)
 
 export default class Socket {
     static registerToMessage = (callback) => {
