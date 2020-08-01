@@ -1,7 +1,7 @@
 import React from 'react'
 import { Dialog, DialogTitle, DialogContent} from '@material-ui/core'
 
-import LoginForm from '../LoginForm'
+import LoginForm from './LoginForm'
 
 const Login = ({open, onClose}) => {
     const toggleDialog = (shouldShow) => {
