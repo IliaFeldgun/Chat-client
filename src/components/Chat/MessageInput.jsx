@@ -1,17 +1,28 @@
 import React from 'react'
-import { Button, TextField } from '@material-ui/core'
+import { Button, TextField, Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 import Socket from '../../api/socket'
+import Session from '../../engine/Session'
+
 
 const useStyles = makeStyles((theme) => ({
     messageInput: {
-        // order: 2
+        width: '80%',
+        flex: '1'
+    },
+    button: {
+        float: 'right'
+    },
+    container: {
+        display: 'flex'
     }
 }))
 
 const MessageInput = () => {
     const [input, changeInput] = React.useState("")
+    const [disabled, setDisabled] = React.useState(false)
     const classes = useStyles()
     const handleChange = (event) => {
         changeInput(event.target.value)
@@ -31,14 +42,19 @@ const MessageInput = () => {
         if (event.key === 'Enter')
             sendMessage(input)
     }
-
+    React.useEffect(() => {
+        const userName = Session.getSession()
+        if (!userName || userName === "") {
+            setDisabled(true)
+        }
+    })
     return (
-        <div className={classes.messageInput}> 
-            <TextField variant="outlined" value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
-            <Button onClick={handleSubmit}>
-                {">"}
+        <Box className={classes.container}> 
+            <TextField disabled={disabled} rowsMax="2" className={classes.messageInput} variant="outlined" value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
+            <Button disabled={disabled} onClick={handleSubmit}>
+                <ArrowForwardIosIcon />
             </Button>
-        </div>
+        </Box>
     )
 }
 
