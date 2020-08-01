@@ -2,14 +2,26 @@ import React from 'react'
 import { 
     List, ListItem, Chip, Avatar 
 } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
 
+const useStyles = makeStyles((theme) => ({
+    list: {
+        display: 'flex',
+        overflowX: 'auto'
+    },
+    listItem: {
+        flexBasis: '0'
+    }
+}));
 const Users = ({users}) => {
+    const classes = useStyles()
+
     return (
-        <List>
+        <List className={classes.list}>
             {
                 users.map((user) => {
                     return (
-                        <ListItem key={user}>
+                        <ListItem className={classes.listItem} key={user}>
                             <Chip 
                                 label={user} 
                                 variant="outlined" 
