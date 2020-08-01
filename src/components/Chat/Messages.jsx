@@ -13,6 +13,14 @@ const useStyles = makeStyles((theme) => ({
 
 const Messages = ({messages}) => {
     const classes = useStyles()
+    const afterMessageRef = React.useRef(null)
+    const scrollBottom = () => {
+        afterMessageRef.current.scrollIntoView(false)
+    }
+
+    React.useEffect(() => {
+        scrollBottom()
+    }, [messages])
 
     messages.sort((a, b) => {
         return new Date(a.timestamp) - new Date(b.timestamp)
@@ -30,6 +38,7 @@ const Messages = ({messages}) => {
                     />
                 })
             }
+            <div ref={afterMessageRef} />
         </List>
     )
 }
