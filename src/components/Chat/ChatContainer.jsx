@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
     chat: {
-        display: "flex",
+        display: 'flex',
         flexGrow: '1',
         height: '0',
         flexDirection: 'column'
