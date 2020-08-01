@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme) => ({
     chat: {
         display: "flex",
         flexGrow: '1',
-        height: '0'
+        height: '0',
+        flexDirection: 'column'
     }
 }));
 const ChatContainer = ({children}) => {
