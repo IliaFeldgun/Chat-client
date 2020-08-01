@@ -44,6 +44,7 @@ const MessageInput = () => {
         if (event.key === 'Enter')
             sendMessage(input)
     }
+    
     React.useEffect(() => {
         const userName = Session.getSession()
         if (!userName || userName === "") {
@@ -54,6 +55,7 @@ const MessageInput = () => {
             })
         }
     }, [disabled])
+
     return (
         <Box className={classes.container}> 
             <TextField autoFocus={true} disabled={disabled} rowsMax="2" className={classes.messageInput} variant="outlined" value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
