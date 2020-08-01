@@ -7,6 +7,7 @@ import ChatContainer from './components/Chat/ChatContainer'
 import MessagesContainer from './components/Chat/MessagesContainer';
 import UsersContainer from './components/Chat/UsersContainer';
 import ErrorBox from './components/General/ErrorBox'
+import LoginSnackbar from './components/General/LoginSnackbar'
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -31,6 +32,7 @@ function App() {
         <MessagesContainer />
       </ChatContainer>
       <ErrorBox />
+      <LoginSnackbar />
     </Box>
   )
 }
