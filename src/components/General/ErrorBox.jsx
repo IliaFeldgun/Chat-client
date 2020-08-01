@@ -13,8 +13,8 @@ const ErrorBox = () => {
         })
     }, [open, error])
 
-    const toggleDialog = () => {
-        onClose()
+    const toggleDialog = (isOpen) => {
+        setOpen(isOpen)
     }
     return (
         <Dialog open={open} onClose={() => toggleDialog(false)}>
