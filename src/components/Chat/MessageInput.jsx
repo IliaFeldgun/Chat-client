@@ -47,7 +47,7 @@ const MessageInput = () => {
         if (!userName || userName === "") {
             setDisabled(true)
         }
-    })
+    }, [disabled])
     return (
         <Box className={classes.container}> 
             <TextField disabled={disabled} rowsMax="2" className={classes.messageInput} variant="outlined" value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
