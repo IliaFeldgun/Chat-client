@@ -24,7 +24,8 @@ export default class Session {
         Socket.login(userName)
     }
     static registerToLogin = (callback) => {
-        Session.loggedInCallbacks.push(callback)
+        if (Session.loggedInCallbacks.indexOf(callback) === -1)
+            Session.loggedInCallbacks.push(callback)
     }
     static initSession = (userName) => {
         SessionStorage.setUserName(userName)
