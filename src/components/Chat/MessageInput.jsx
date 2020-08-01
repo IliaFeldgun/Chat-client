@@ -9,7 +9,7 @@ import Session from '../../engine/Session'
 
 const useStyles = makeStyles((theme) => ({
     messageInput: {
-        width: '80%',
+        width: '0',
         flex: '1'
     },
     button: {
