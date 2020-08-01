@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '@material-ui/core'
+import { Container, Divider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 import Messages from './Messages'
@@ -34,6 +34,7 @@ const MessagesContainer = () => {
     return (
         <Container component='span' className={classes.container}>
             <Messages messages={messages}  />
+            <Divider />
             <MessageInput />
         </Container>
     )
