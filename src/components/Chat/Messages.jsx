@@ -7,7 +7,7 @@ import Message from './Message'
 const useStyles = makeStyles((theme) => ({
     messages: {
         overflowY: 'scroll',
-        height: '80%'
+        height: '79%'
     }
 }))
 
