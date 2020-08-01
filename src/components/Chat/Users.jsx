@@ -1,6 +1,6 @@
 import React from 'react'
 import { 
-    List, ListItem, Chip, ListItemAvatar, Avatar 
+    List, ListItem, Chip, Avatar 
 } from '@material-ui/core'
 
 const Users = ({users}) => {
