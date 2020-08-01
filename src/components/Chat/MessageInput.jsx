@@ -46,11 +46,15 @@ const MessageInput = () => {
         const userName = Session.getSession()
         if (!userName || userName === "") {
             setDisabled(true)
+
+            Session.registerToLogin(() => {
+                setDisabled(false)
+            })
         }
     }, [disabled])
     return (
         <Box className={classes.container}> 
-            <TextField disabled={disabled} rowsMax="2" className={classes.messageInput} variant="outlined" value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
+            <TextField autoFocus={true} disabled={disabled} rowsMax="2" className={classes.messageInput} variant="outlined" value={input} onChange={handleChange} onKeyPress={handleKeyPress}/>
             <Button disabled={disabled} onClick={handleSubmit}>
                 <ArrowForwardIosIcon />
             </Button>
