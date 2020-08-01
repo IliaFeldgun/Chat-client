@@ -10,11 +10,14 @@ const LoginSnackbar = () => {
         const userName = Session.getSession()
         if (userName === '' || !userName) {
             setOpen(true)
-            Session.registerToLogin(() => {
-                setOpen(false)
-            })
         }
     }, [open])
+    
+    React.useEffect(() => {
+        Session.registerToLogin(() => {
+            setOpen(false)
+        })
+    }, [])
 
     const anchorOrigin = {vertical: 'bottom', horizontal: 'center'}
 
