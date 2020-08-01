@@ -15,10 +15,12 @@ export default class Socket {
     static registerToLogin = (callback) => {
         socket.on('logged-in', callback)
     }
+    static registerToError = (callback) => {
+        socket.on('error', callback)
+    }
     static sendMessage = (message) => {
         socket.emit('message', {
-            message,
-            timestamp: (new Date()).toJSON()
+            message
         })
     }
     static login = (userName) => {
