@@ -34,7 +34,7 @@ const LoginForm = ({onLogin}) => {
     
     return (
         <React.Fragment>
-            <TextField type="text" label="Name" onChange={handleChange} onKeyPress={handleKeyPress} />
+            <TextField autoFocus={true} type="text" label="Name" onChange={handleChange} onKeyPress={handleKeyPress} />
             <Button color="inherit" className={classes.button} onClick={handleClick}>
                 Login
             </Button>
