@@ -4,12 +4,12 @@ import {
     AppBar, Toolbar, Typography, Button, IconButton
 } from '@material-ui/core'
 import { Menu as MenuIcon } from '@material-ui/icons'
-import Login from './Login'
+import Login from '../General/Login'
 import Session from '../../engine/Session'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    position: 'relative'
   },
   title: {
     flexGrow: 1,
