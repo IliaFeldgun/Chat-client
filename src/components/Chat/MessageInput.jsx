@@ -29,8 +29,10 @@ const MessageInput = () => {
     }
 
     const sendMessage = (message) => {
-        Socket.sendMessage(message)
-        changeInput("")
+        if (message !== "") {
+            Socket.sendMessage(message)
+            changeInput("")
+        }
     }
 
     const handleSubmit = (event) => {

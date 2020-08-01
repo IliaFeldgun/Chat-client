@@ -20,8 +20,10 @@ const LoginForm = ({onLogin}) => {
     }
 
     const handleLogin = () => {
-        Session.Login(name)
-        onLogin()
+        if (name !== "") {
+            Session.Login(name)
+            onLogin()
+        }
     }
     const handleClick = (event) => {
         handleLogin()
