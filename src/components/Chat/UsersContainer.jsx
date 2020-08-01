@@ -7,9 +7,7 @@ import Socket from '../../api/socket'
 
 const useStyles = makeStyles((theme) => ({
     users: {
-        marginTop: "10px",
-        width: "20%",
-        height: "100%",
+        marginTop: "10px"
     }
 }));
 
@@ -25,7 +23,7 @@ const UsersContainer = () => {
 
     return (
         <Container component="span" className={classes.users}>
-            Users in chat
+            Users
             <Divider />
             <Users users={users} />
         </Container>
