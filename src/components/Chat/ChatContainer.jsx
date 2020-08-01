@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
     chat: {
         display: "flex",
-        height: "100%"
+        flexGrow: '1',
+        height: '0'
     }
 }));
 const ChatContainer = ({children}) => {
