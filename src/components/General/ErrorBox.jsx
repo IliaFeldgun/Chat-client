@@ -11,7 +11,7 @@ const ErrorBox = () => {
             setError(error)
             setOpen(true)
         })
-    }, [open, error])
+    }, [])
 
     const toggleDialog = (isOpen) => {
         setOpen(isOpen)

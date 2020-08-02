@@ -26,7 +26,7 @@ const TopBar = () => {
     
     React.useEffect(() => {
         initUserName()
-    })
+    }, [])
 
     const initUserName = () => {
         if (userName === ""){

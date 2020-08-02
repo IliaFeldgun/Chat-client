@@ -19,7 +19,7 @@ const UsersContainer = () => {
         Socket.registerToUsers((users) => {
             setUsers(users)
         })
-    })
+    }, [])
 
     return (
         <Container component="span" className={classes.users}>
