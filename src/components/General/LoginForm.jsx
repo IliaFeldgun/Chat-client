@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         verticalAlign: "bottom"
     }
-  }));
+}));
 
 const LoginForm = ({onLogin}) => {
     const classes = useStyles()
@@ -21,7 +21,7 @@ const LoginForm = ({onLogin}) => {
 
     const handleLogin = () => {
         if (name !== "") {
-            Session.Login(name)
+            Session.Login(name.replace(/[\W]+/g,""))
             onLogin()
         }
     }
