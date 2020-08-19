@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat-client-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chat-client
+  template:
+    metadata:
+      labels:
+        app: chat-client
+    spec:
+      containers:
+      - name: chat-client
+        image: iliafeldgun/chat-client:dev
+        ports:
+        - containerPort: 3000
